@@ -8,10 +8,12 @@ const originalPackageJSON = {
     },
     dependencies: {
         bcrypt: "^5.0.0",
+        dotenv: "^10.0.0",
         express: "^4.17.1",
         jsonwebtoken: "^8.5.1",
         morgan: "^1.10.0",
-        nodemon: "^2.0.4"
+        nodemon: "^2.0.4",
+        "rand-token": "^1.0.1"
     },
     devDependencies: {
         jest: "^26.4.2",

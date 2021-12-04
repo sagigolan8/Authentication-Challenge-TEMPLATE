@@ -25,7 +25,7 @@ describe('Admin Tests', () => {
             .send(userAdminMock)
 
         expect(adminLoginRes.status).toBe(200)
-        expect(adminLoginRes.body.isAdmin).toBe(true)
+        expect(adminLoginRes.body.isAdmin).toBe(true) 
         expect(typeof adminLoginRes.body.accessToken).toBe('string')
         expect(adminLoginRes.body.accessToken.length > 100).toBe(true)
 
@@ -34,7 +34,7 @@ describe('Admin Tests', () => {
             .set('authorization', `bearer ${adminLoginRes.body.accessToken}`)
 
         expect(infoRes.status).toBe(200)
-        expect(infoRes.body.length > 0).toBe(true)
+        expect(infoRes.body.length > 0).toBe(true) 
 
         const getAllUsersRes = await request(server)
             .get('/api/v1/users')

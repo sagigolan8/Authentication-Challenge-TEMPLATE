@@ -8,6 +8,7 @@ const userInfoMock = {
     password: 'Aa123456!'
 }
 
+
 describe('Authorized User Tests', () => {
     afterAll(async () => {
         await server.close();
@@ -27,15 +28,12 @@ describe('Authorized User Tests', () => {
             .send(userInfoMock)
 
         expect(loginRes.status).toBe(200)
-
         const infoRes = await request(server)
             .get('/api/v1/information')
             .set('authorization', `bearer ${loginRes.body.accessToken}`)
-
         expect(infoRes.status).toBe(200)
-        expect(infoRes.body.length > 0).toBe(true)
+        expect(Object.keys(infoRes.body).length > 0).toBe(true)//Object.keys
         expect(infoRes.body[0].email).toBe(userInfoMock.email)
-
         const informationResponse = await request(server)
             .get('/api/v1/information')
             .set('authorization', 'bearer notValidToken')
